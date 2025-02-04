@@ -1,0 +1,79 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-pi-pico-w",
+        "id": "pico",
+        "top": 0,
+        "left": 0,
+        "attrs": { "builder": "pico-sdk" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": -70.8,
+        "left": -197.8,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": -32.4,
+        "left": -197.8,
+        "attrs": { "color": "blue" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": 15.6,
+        "left": -197.8,
+        "attrs": { "color": "green" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": -34.45,
+        "left": -153.6,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 3.95,
+        "left": -153.6,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": 42.35,
+        "left": -153.6,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn1",
+        "top": 25.4,
+        "left": -76.8,
+        "attrs": { "color": "green" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "pico:GP11", "r3:2", "green", [ "h0" ] ],
+      [ "pico:GP12", "r2:2", "green", [ "h-73.25", "v-147.21" ] ],
+      [ "r1:2", "pico:GP13", "green", [ "v0", "h66", "v192" ] ],
+      [ "pico:GND.1", "led1:C", "black", [ "h-217.25", "v-60.85" ] ],
+      [ "led3:C", "pico:GND.4", "green", [ "v0", "h-18.8", "v115.2" ] ],
+      [ "led2:C", "pico:GND.3", "green", [ "v0", "h-9.2", "v105.6" ] ],
+      [ "led1:A", "r1:1", "green", [ "v0" ] ],
+      [ "led2:A", "r2:1", "green", [ "v0", "h19.2" ] ],
+      [ "led3:A", "r3:1", "green", [ "v0" ] ],
+      [ "pico:GP5", "btn1:2.r", "green", [ "h0" ] ],
+      [ "btn1:1.r", "pico:GND.1", "green", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
